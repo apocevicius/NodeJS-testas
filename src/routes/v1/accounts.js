@@ -18,10 +18,10 @@ router.post('/accounts', async (req, res) => {
 });
 
 // GET /posts/all - list all post from everyone, join user email
-router.get('/all', async (req, res) => {
+router.get('/accounts', async (req, res) => {
   const sql = `
-  SELECT posts.postId, posts.title, posts.body, posts.timeStamp, users.email AS author
-  FROM posts
+  SELECT accounts.id, accounts.group_id, accounts.user_id, AS user
+  FROM accounts
   INNER JOIN users
   ON users.userId = posts.userId`;
   const dbResult = await dbAction(sql);
