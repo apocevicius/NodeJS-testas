@@ -1,0 +1,25 @@
+Visa procesa darom naudodami git. Pabaige darba ikeliame nuododa i jusu public github repozitorija. 
+
+Jei naudosite localia duomenu baze savo kompiureryje (mamp, xamp, wamp) iseksportuokite db.sql failiuka ir pridekite ji prie failu sistemos
+
+
+
+Sistema: jungtis į grupes ir dalintis sąskaitomis.DB:
+
+users (id, full_name, email, password, reg_timestamp);
+groups (id, name);
+bills (id, group_id, amount, description);
+accounts (id, group_id, user_id) <- ši lentelė skirta žinoti kokioms grupėms priklauso kiekvienas vartotojas.
+Back-end:
+
+Auth: Register/Login su POST.
+POST: /accounts/ - vartotojas paduoda account ID ir savo token. Į accounts lentelę įsirašo duomenys.
+GET: /accounts/ - paduoda visas vartotojo grupes (JOIN su groups). ID pasiima iš token.
+GET: /bills/:id - paduoda vartotojui visas sąskaitas tos grupės.
+POST /bills/ - įrašo naują sąskaitą specifinei grupei (front'as paduoda: group_id, amount, description)
+Front-end:
+
+Register: vartotojas įrašo vardą, emailą ir slaptažodį du kartus (jei nesutampa - front'as nepraleidžia).
+Login: vartotojas įrašo emailą, slaptažodį; gauna token; nukreipia į groups pasirinkimą.
+Groups: vartotojas mato visas savo grupes (pagal accounts lentelę iš DB). Paspaudus - nuveda į tos grupės bills. Apačioje forma pridėti grupę prie paskyros (t.y. į accounts lentelę). Patikslinimas: grupes id reikia tiesiog pasiziureti grupiu lenteleje, arba siek tiek sunkesnis varijantas(papildomi balai) padaryti dropdown visu grupiu vietoj ivedimo lauko.
+Bills: mato sąskaitas specifinės grupės ir gali naujas pridėt.
