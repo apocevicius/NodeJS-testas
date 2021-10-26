@@ -17,12 +17,12 @@ async function registerUser(event) {
             email,
             password
         })
-    }).then((res) => res.json())
+        }).then((res) => res.json())
 
-    if (result.status === 'ok') {
-        // Everything Went Fine
-        alert('Success')
-        } else {
-        alert(result.error)
+        if (result.status === 'ok') {
+            // Everything Went Fine
+            alert('Success')
+            } else {
+            alert(result.error)
+        }
     }
-}

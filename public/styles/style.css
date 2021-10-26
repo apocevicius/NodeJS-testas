@@ -11,6 +11,7 @@
 }
 
 h1, h3, h2 {
+    margin-bottom: 50px;
     text-align: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
@@ -32,3 +33,36 @@ button {
     height: 40px;
     width: 100px;
 }
+
+.table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    margin-left: 650px;
+    font-size: 0.9em;
+    min-width: 900px;
+  }
+
+  table thead tr {
+    color: #000000;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .table th{
+    background-color: rgb(219, 219, 219);
+  }
+  
+  .table th,
+  .table td {
+    padding: 12px 15px;
+  }
+  
+  .table tbody tr:nth-of-type(even) {
+    background-color: rgb(219, 219, 219);;
+  }
+
+  .bill {
+      margin-top: 100px;
+      margin-right: 350px;
+  }
+  
